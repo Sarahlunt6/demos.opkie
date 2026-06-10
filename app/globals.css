@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+/*
+  Porcelain — design token source of truth.
+  Every PRD token is defined once here in @theme. Components reference these
+  by name (bg-porcelain, text-graphite, border-ink-line, font-display, ...).
+  No raw hex values belong in component files.
+*/
+
+@theme {
+  /* Color tokens (PRD 2.2) — dental porcelain / enamel / studio lighting */
+  --color-porcelain: #fafaf8; /* page background — cool white, not cream */
+  --color-enamel: #ffffff; /* cards, elevated surfaces */
+  --color-graphite: #1c1b1a; /* primary text — near-black with warmth */
+  --color-smoke: #6e6a66; /* secondary text */
+  --color-champagne: #b8a06a; /* accent — muted metallic gold, used sparingly */
+  --color-ink-line: #e5e2dd; /* hairline borders and dividers */
+
+  /* Type families (PRD 2.3) — exactly two, loaded via next/font */
+  --font-display: var(--font-fraunces); /* high-contrast editorial serif */
+  --font-sans: var(--font-inter); /* quiet grotesque body */
+
+  /* Display scale — fluid clamp 2.5rem–5.5rem (PRD 2.3) */
+  --text-display-sm: clamp(2rem, 1.4rem + 2.6vw, 3rem);
+  --text-display: clamp(2.5rem, 1.6rem + 3.6vw, 4rem);
+  --text-display-lg: clamp(3rem, 1.5rem + 6vw, 5.5rem);
+  --text-display-sm--line-height: 1.05;
+  --text-display--line-height: 1.04;
+  --text-display-lg--line-height: 1;
+  --text-display-sm--letter-spacing: -0.01em;
+  --text-display--letter-spacing: -0.015em;
+  --text-display-lg--letter-spacing: -0.02em;
+
+  /* Body scale — 16–18px, 1.6 line height (PRD 2.3) */
+  --text-body: 1.0625rem; /* 17px */
+  --text-body--line-height: 1.6;
+  --text-body-lg: 1.125rem; /* 18px */
+  --text-body-lg--line-height: 1.6;
+
+  /* Eyebrow / utility — letterspaced uppercase grotesque (PRD 2.3) */
+  --text-eyebrow: 0.75rem; /* 12px */
+  --text-eyebrow--line-height: 1.4;
+  --text-eyebrow--letter-spacing: 0.14em;
+
+  /* Layout system (PRD 2.4) */
+  --container-page: 1280px;
+
+  /* Section rhythm — 120–160px desktop / 64–80px mobile */
+  --spacing-section: 5rem; /* 80px — mobile baseline */
+  --spacing-section-lg: 9rem; /* 144px — desktop */
+
+  /* Motion timings (PRD 2.6) */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------------------------------------------------------------- *
+ * Base layer
+ * ---------------------------------------------------------------- */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-porcelain);
+    color: var(--color-graphite);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Display serif: tight tracking, light weight (PRD 2.3) */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-optical-sizing: auto;
+    color: var(--color-graphite);
+  }
+
+  /* Visible focus state — champagne 2px outline (PRD 8 / WCAG AA) */
+  :focus-visible {
+    outline: 2px solid var(--color-champagne);
+    outline-offset: 2px;
+    border-radius: 1px;
+  }
+
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  ::selection {
+    background-color: var(--color-champagne);
+    color: var(--color-enamel);
+  }
+}
+
+/* ---------------------------------------------------------------- *
+ * Utilities
+ * ---------------------------------------------------------------- */
+@layer utilities {
+  /* Eyebrow label — "SMILE GALLERY — CASE 014" (PRD 2.3) */
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: var(--text-eyebrow);
+    line-height: var(--text-eyebrow--line-height);
+    letter-spacing: var(--text-eyebrow--letter-spacing);
+    text-transform: uppercase;
+    color: var(--color-smoke);
+    font-weight: 500;
+  }
+
+  /* Constrain measure to 65ch (PRD 2.3) */
+  .measure {
+    max-width: 65ch;
+  }
+}
+
+/* ---------------------------------------------------------------- *
+ * Reduced motion — disable all transforms, opacity-only (PRD 2.6 / 8)
+ * ---------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
