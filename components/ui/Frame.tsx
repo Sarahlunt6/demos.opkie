@@ -2,12 +2,14 @@ import Image from "next/image";
 
 type Tone = "before" | "after" | "neutral";
 
-// Placeholder tones, all token-derived (no raw hex). "before" and "after"
-// differ slightly so the slider reveal is visible with placeholder blocks.
+// Placeholder background tones, all token-derived (no raw hex). "before" and
+// "after" differ slightly so the slider reveal is visible with placeholder
+// blocks. The caption color is set on the label (graphite/70) so it clears
+// WCAG AA contrast against every tone.
 const toneClass: Record<Tone, string> = {
-  before: "bg-ink-line text-smoke",
-  after: "bg-graphite/10 text-graphite",
-  neutral: "bg-ink-line text-smoke",
+  before: "bg-ink-line",
+  after: "bg-graphite/10",
+  neutral: "bg-ink-line",
 };
 
 export interface FrameProps {
@@ -71,7 +73,7 @@ export function Frame({
       } ${className}`}
     >
       {label && (
-        <span className="px-4 text-center text-[11px] font-medium uppercase tracking-[0.14em]">
+        <span className="px-4 text-center text-[11px] font-medium uppercase tracking-[0.14em] text-graphite/70">
           {label}
         </span>
       )}
