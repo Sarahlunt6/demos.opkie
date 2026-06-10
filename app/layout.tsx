@@ -5,12 +5,13 @@ import { siteConfig } from "@/lib/site.config";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
-// Display — high-contrast editorial serif with optical sizing (PRD 2.3)
+// Display — high-contrast editorial serif with optical sizing (PRD 2.3).
+// Variable font: load the weight axis + optical sizing and control weight
+// (300–400) via CSS, per next/font's variable-font rules.
 const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
   display: "swap",
-  weight: ["300", "400"],
   style: ["normal", "italic"],
   axes: ["opsz"],
 });
