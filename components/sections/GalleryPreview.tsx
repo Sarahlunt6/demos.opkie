@@ -3,7 +3,6 @@ import { Reveal } from "@/components/ui/Reveal";
 import { AnimatedLink } from "@/components/ui/AnimatedLink";
 import { TransformationSlider } from "@/components/interactive/TransformationSlider";
 import { siteConfig } from "@/lib/site.config";
-import { ph } from "@/lib/placeholder";
 
 /**
  * Smile gallery preview (PRD 4.1) — three interactive comparison cases and a
@@ -31,10 +30,9 @@ export function GalleryPreview() {
           {cases.map((c) => (
             <Reveal key={c.id}>
               <TransformationSlider
-                beforeSrc={ph(1200, 1500, `Case ${c.id} Before`, "before")}
-                afterSrc={ph(1200, 1500, `Case ${c.id} After`, "after")}
                 beforeAlt={c.beforeAlt}
                 afterAlt={c.afterAlt}
+                label={`Case ${c.id}`}
                 aspect="4 / 5"
                 eyebrow={`Case ${c.id} — ${c.procedure}`}
                 sizes="(max-width: 768px) 100vw, 30vw"

@@ -11,7 +11,6 @@ import type { Crumb } from "@/components/layout/Breadcrumb";
 import { siteConfig } from "@/lib/site.config";
 import { pageMetadata } from "@/lib/seo";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
-import { ph } from "@/lib/placeholder";
 
 type Params = { slug: string };
 
@@ -122,9 +121,13 @@ export default async function ServiceDetailPage({
                   className="bg-porcelain p-8"
                   delay={i * 60}
                 >
-                  <span className="font-display text-4xl font-light text-champagne">
+                  <span className="font-display text-4xl font-light text-graphite">
                     {String(i + 1).padStart(2, "0")}
                   </span>
+                  <span
+                    aria-hidden="true"
+                    className="mt-3 block h-px w-8 bg-champagne"
+                  />
                   <h3 className="mt-4 text-lg text-graphite">{step.title}</h3>
                   <p className="mt-3 text-body text-smoke">{step.description}</p>
                 </Reveal>
@@ -141,10 +144,9 @@ export default async function ServiceDetailPage({
             <div className="mx-auto max-w-3xl">
               <Reveal>
                 <TransformationSlider
-                  beforeSrc={ph(1600, 1200, `Case ${galleryCase.id} Before`, "before")}
-                  afterSrc={ph(1600, 1200, `Case ${galleryCase.id} After`, "after")}
                   beforeAlt={galleryCase.beforeAlt}
                   afterAlt={galleryCase.afterAlt}
+                  label={`Case ${galleryCase.id}`}
                   eyebrow={`Case ${galleryCase.id} — ${galleryCase.detail}`}
                   sizes="(max-width: 768px) 100vw, 768px"
                 />

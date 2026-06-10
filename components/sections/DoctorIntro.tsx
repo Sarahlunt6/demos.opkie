@@ -1,9 +1,8 @@
-import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { AnimatedLink } from "@/components/ui/AnimatedLink";
+import { Frame } from "@/components/ui/Frame";
 import { siteConfig } from "@/lib/site.config";
-import { ph } from "@/lib/placeholder";
 
 /**
  * Doctor introduction (PRD 4.1) — 7/5 split. Environmental portrait and a
@@ -18,12 +17,11 @@ export function DoctorIntro() {
         {/* Portrait — 5/12 */}
         <Reveal className="lg:col-span-5">
           <div className="relative aspect-[4/5] w-full overflow-hidden bg-ink-line">
-            <Image
-              src={ph(1200, 1500, doctor.displayName, "neutral")}
+            <Frame
               alt={`${doctor.name} at ${siteConfig.practice.name}`}
+              label={doctor.displayName}
               fill
               sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-cover"
             />
           </div>
         </Reveal>
@@ -32,7 +30,7 @@ export function DoctorIntro() {
         <Reveal className="lg:col-span-7" delay={80}>
           <p className="eyebrow">The Practice</p>
           <blockquote className="mt-6">
-            <p className="text-display-sm font-light italic leading-[1.25] text-graphite">
+            <p className="font-display-italic text-display-sm font-light leading-[1.25] text-graphite">
               &ldquo;{doctor.statement}&rdquo;
             </p>
             <footer className="mt-8">

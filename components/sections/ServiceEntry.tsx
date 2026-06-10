@@ -1,8 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
+import { Frame } from "@/components/ui/Frame";
 import { siteConfig, type Service } from "@/lib/site.config";
-import { ph } from "@/lib/placeholder";
 
 /**
  * One large editorial service entry — image + serif title + two-line excerpt
@@ -20,12 +19,11 @@ export function ServiceEntry({
     <Reveal className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-16">
       <div className={`lg:col-span-6 ${imageFirst ? "lg:order-1" : "lg:order-2"}`}>
         <div className="relative aspect-[4/5] w-full overflow-hidden bg-ink-line">
-          <Image
-            src={ph(1200, 1500, service.shortTitle, "neutral")}
+          <Frame
             alt={`${service.title} at ${siteConfig.practice.name}`}
+            label={service.shortTitle}
             fill
             sizes="(max-width: 1024px) 100vw, 45vw"
-            className="object-cover"
           />
         </div>
       </div>

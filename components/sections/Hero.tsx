@@ -2,7 +2,6 @@ import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { TransformationSlider } from "@/components/interactive/TransformationSlider";
 import { siteConfig } from "@/lib/site.config";
-import { ph } from "@/lib/placeholder";
 
 // Headline split into lines so each rises with a 60ms stagger (PRD 2.6).
 // The emphasized word is set in display italic (PRD 2.3).
@@ -32,11 +31,11 @@ export function Hero() {
             {HEADLINE_LINES.map((line, i) => (
               <span
                 key={line.text}
-                className="block animate-line-rise"
+                className="block animate-rise"
                 style={{ animationDelay: `${80 + i * 60}ms` }}
               >
                 {line.italic ? (
-                  <em className="font-light italic">{line.text}</em>
+                  <em className="font-display-italic font-light">{line.text}</em>
                 ) : (
                   line.text
                 )}
@@ -69,10 +68,9 @@ export function Hero() {
           style={{ animationDelay: "200ms" }}
         >
           <TransformationSlider
-            beforeSrc={ph(1600, 1200, "Case 014 Before", "before")}
-            afterSrc={ph(1600, 1200, "Case 014 After", "after")}
             beforeAlt={hero.beforeAlt}
             afterAlt={hero.afterAlt}
+            label={`Case ${hero.id}`}
             eyebrow={sliderEyebrow}
             priority
             sizes="(max-width: 1024px) 100vw, 58vw"

@@ -16,16 +16,30 @@ const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
   display: "swap",
-  style: ["normal", "italic"],
+  style: ["normal"],
   axes: ["opsz"],
 });
 
-// Body — quiet grotesque (PRD 2.3)
+// Italic is used for only a word or two per page (never the LCP element), so
+// it loads as a separate, non-preloaded file — keeping the preloaded display
+// font to the LCP-critical normal weight alone.
+const frauncesItalic = Fraunces({
+  variable: "--font-fraunces-italic",
+  subsets: ["latin"],
+  display: "swap",
+  style: ["italic"],
+  axes: ["opsz"],
+  preload: false,
+});
+
+// Body — quiet grotesque (PRD 2.3). Not preloaded: body text is never the LCP
+// element, so we leave first-paint bandwidth to the display font (the headline).
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "500"],
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -69,7 +83,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${inter.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${frauncesItalic.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-porcelain text-graphite">
         <JsonLd data={dentistSchema()} />

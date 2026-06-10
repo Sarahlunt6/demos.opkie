@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import {
   useCallback,
   useEffect,
@@ -9,12 +8,16 @@ import {
   type KeyboardEvent,
   type PointerEvent,
 } from "react";
+import { Frame } from "@/components/ui/Frame";
 
 export interface TransformationSliderProps {
-  beforeSrc: string;
-  afterSrc: string;
   beforeAlt: string;
   afterAlt: string;
+  /** Real image paths; when omitted, solid placeholder blocks are shown. */
+  beforeSrc?: string;
+  afterSrc?: string;
+  /** Centered caption for the placeholder blocks, e.g. "Case 014". */
+  label?: string;
   /** Intrinsic aspect ratio "w / h" — both images must match it exactly. */
   aspect?: string;
   /** Eyebrow label rendered above, e.g. "CASE 014 — PORCELAIN VENEERS, 8 UNITS". */
@@ -40,6 +43,7 @@ export function TransformationSlider({
   afterSrc,
   beforeAlt,
   afterAlt,
+  label,
   aspect = "4 / 3",
   eyebrow,
   priority = false,
@@ -138,14 +142,14 @@ export function TransformationSlider({
         onPointerCancel={endDrag}
       >
         {/* Base layer: BEFORE (fully visible) */}
-        <Image
+        <Frame
           src={beforeSrc}
           alt={beforeAlt}
+          label={label ? `${label} — Before` : undefined}
+          tone="before"
           fill
           sizes={sizes}
           priority={priority}
-          draggable={false}
-          className="object-cover"
         />
 
         {/* Top layer: AFTER, clipped from the left to the handle position */}
@@ -153,14 +157,14 @@ export function TransformationSlider({
           className="absolute inset-0"
           style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
         >
-          <Image
+          <Frame
             src={afterSrc}
             alt={afterAlt}
+            label={label ? `${label} — After` : undefined}
+            tone="after"
             fill
             sizes={sizes}
             priority={priority}
-            draggable={false}
-            className="object-cover"
           />
         </div>
 
@@ -168,7 +172,7 @@ export function TransformationSlider({
         <span className="pointer-events-none absolute left-3 top-3 bg-graphite/80 px-2.5 py-1 text-[11px] font-medium uppercase tracking-[0.14em] text-porcelain">
           After
         </span>
-        <span className="pointer-events-none absolute right-3 top-3 bg-graphite/60 px-2.5 py-1 text-[11px] font-medium uppercase tracking-[0.14em] text-porcelain">
+        <span className="pointer-events-none absolute right-3 top-3 bg-graphite/80 px-2.5 py-1 text-[11px] font-medium uppercase tracking-[0.14em] text-porcelain">
           Before
         </span>
 

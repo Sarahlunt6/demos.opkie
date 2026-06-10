@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Reveal } from "@/components/ui/Reveal";
+import { Frame } from "@/components/ui/Frame";
 import { BookingBand } from "@/components/sections/BookingBand";
 import { siteConfig } from "@/lib/site.config";
 import { pageMetadata } from "@/lib/seo";
-import { ph } from "@/lib/placeholder";
 
 const { pages, about, doctor } = siteConfig;
 
@@ -29,12 +28,12 @@ export default function AboutPage() {
       <Container as="section" className="py-section lg:py-section-lg">
         <Reveal>
           <div className="relative aspect-[3/2] w-full overflow-hidden bg-ink-line">
-            <Image
-              src={ph(1600, 1067, doctor.displayName, "neutral")}
+            <Frame
               alt={`${doctor.name} at ${siteConfig.practice.name}`}
+              label={doctor.displayName}
               fill
               sizes="100vw"
-              className="object-cover"
+              priority
             />
           </div>
         </Reveal>

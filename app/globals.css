@@ -18,6 +18,7 @@
 
   /* Type families (PRD 2.3) — exactly two, loaded via next/font */
   --font-display: var(--font-fraunces); /* high-contrast editorial serif */
+  --font-display-italic: var(--font-fraunces-italic); /* true italic cut */
   --font-sans: var(--font-inter); /* quiet grotesque body */
 
   /* Display scale — fluid clamp 2.5rem–5.5rem (PRD 2.3) */
@@ -100,9 +101,10 @@
 }
 
 /* ---------------------------------------------------------------- *
- * Utilities
+ * Components — defined in the components layer so text-color utilities
+ * (e.g. text-champagne on a dark band) can override the default color.
  * ---------------------------------------------------------------- */
-@layer utilities {
+@layer components {
   /* Eyebrow label — "SMILE GALLERY — CASE 014" (PRD 2.3) */
   .eyebrow {
     font-family: var(--font-sans);
@@ -118,6 +120,12 @@
   .measure {
     max-width: 65ch;
   }
+
+  /* True italic cut of the display serif (separate, non-preloaded font). */
+  .font-display-italic {
+    font-family: var(--font-display-italic);
+    font-style: italic;
+  }
 }
 
 /* ---------------------------------------------------------------- *
@@ -130,6 +138,17 @@
   }
   to {
     opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Transform-only rise — used for the hero headline so it stays opacity:1 and
+   remains an LCP candidate at first paint (an opacity:0 start delays LCP). */
+@keyframes line-rise-transform {
+  from {
+    transform: translateY(0.5em);
+  }
+  to {
     transform: translateY(0);
   }
 }
@@ -161,6 +180,11 @@
   .animate-line-rise {
     opacity: 0;
     animation: line-rise 0.6s var(--ease-out-soft) both;
+  }
+
+  /* LCP-safe rise: visible from first paint, transform only. */
+  .animate-rise {
+    animation: line-rise-transform 0.6s var(--ease-out-soft) both;
   }
 
   /* Slider handle pulses once after the headline resolves, then rests. */

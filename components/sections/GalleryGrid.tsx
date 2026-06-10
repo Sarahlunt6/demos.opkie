@@ -3,7 +3,6 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { TransformationSlider } from "@/components/interactive/TransformationSlider";
 import { siteConfig } from "@/lib/site.config";
-import { ph } from "@/lib/placeholder";
 
 interface Filter {
   label: string;
@@ -89,10 +88,9 @@ export function GalleryGrid() {
             style={{ animationDelay: `${i * 50}ms` }}
           >
             <TransformationSlider
-              beforeSrc={ph(1200, 1500, `Case ${c.id} Before`, "before")}
-              afterSrc={ph(1200, 1500, `Case ${c.id} After`, "after")}
               beforeAlt={c.beforeAlt}
               afterAlt={c.afterAlt}
+              label={`Case ${c.id}`}
               aspect="4 / 5"
               eyebrow={`Case ${c.id} — ${c.procedure}`}
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
