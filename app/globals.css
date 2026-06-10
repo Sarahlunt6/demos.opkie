@@ -134,6 +134,17 @@
   }
 }
 
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.4rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes handle-pulse {
   0%,
   100% {
@@ -155,6 +166,11 @@
   /* Slider handle pulses once after the headline resolves, then rests. */
   .animate-handle-pulse {
     animation: handle-pulse 0.7s var(--ease-out-soft) 1;
+  }
+
+  /* Gallery cards fade in when the filter changes (delay set inline). */
+  .animate-fade-in {
+    animation: fade-in 0.35s var(--ease-out-soft) both;
   }
 }
 

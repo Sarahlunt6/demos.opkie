@@ -6,16 +6,18 @@ import type { ElementType, ReactNode } from "react";
  */
 export function Container({
   as,
+  id,
   className = "",
   children,
 }: {
   as?: ElementType;
+  id?: string;
   className?: string;
   children: ReactNode;
 }) {
   const Tag = as ?? "div";
   return (
-    <Tag className={`mx-auto w-full max-w-page px-6 sm:px-8 ${className}`}>
+    <Tag id={id} className={`mx-auto w-full max-w-page px-6 sm:px-8 ${className}`}>
       {children}
     </Tag>
   );

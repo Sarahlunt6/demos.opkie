@@ -701,6 +701,104 @@ export const siteConfig = {
     google: "https://www.google.com/maps?q=Hale+Dental+Studio+Westbrook",
   },
 
+  /**
+   * Per-page headings + SEO. Titles are the page-specific half; the layout's
+   * title template appends " | {practice.name}". Descriptions are <=155 chars.
+   */
+  pages: {
+    about: {
+      eyebrow: "About the Studio",
+      heading: "A small studio, by design",
+      intro:
+        "Hale Dental Studio is one dentist, a short list of services, and the time to do them well. That is a deliberate choice, not a limitation.",
+      seo: {
+        title: "About Dr. Alexandra Hale",
+        description:
+          "Meet Dr. Alexandra Hale and the philosophy behind Hale Dental Studio in Westbrook — conservative cosmetic dentistry at an unhurried pace.",
+      },
+    },
+    services: {
+      eyebrow: "Services",
+      heading: "Considered cosmetic and restorative care",
+      intro:
+        "A short list of services, each done exceptionally. Every plan is designed around your face and your bite, and explained before anything begins.",
+      seo: {
+        title: "Cosmetic & Restorative Services",
+        description:
+          "Veneers, smile makeovers, whitening, Invisalign, implants, and general dentistry at Hale Dental Studio in Westbrook.",
+      },
+    },
+    smileGallery: {
+      eyebrow: "Smile Gallery",
+      heading: "Real work, shown plainly",
+      intro:
+        "Every case here was treated at the studio. Drag any divider to compare before and after, and filter by the kind of work you are considering.",
+      seo: {
+        title: "Smile Gallery",
+        description:
+          "Before-and-after cases from Hale Dental Studio in Westbrook — veneers, smile makeovers, whitening, Invisalign, and implants.",
+      },
+    },
+    newPatients: {
+      eyebrow: "New Patients",
+      heading: "Your first visit",
+      seo: {
+        title: "New Patients",
+        description:
+          "What to expect on your first visit to Hale Dental Studio in Westbrook, plus financing, insurance, and new-patient forms.",
+      },
+    },
+    contact: {
+      eyebrow: "Contact",
+      heading: "Visit the studio",
+      intro:
+        "Send a note or call, and we will find a time that works. Consultations are unhurried and there is no obligation to begin treatment.",
+      seo: {
+        title: "Contact & Booking",
+        description:
+          "Contact Hale Dental Studio in Westbrook. Call, send a message, or book a consultation. Hours, parking, and directions.",
+      },
+    },
+  },
+
+  /** About-page narrative + principles (doctor-led story, PRD 3/4) */
+  about: {
+    story: [
+      "Dr. Alexandra Hale opened the studio in 2009 with a simple idea: that the best cosmetic dentistry is the kind no one can point to. After a decade of training and practice, she had seen enough overdone smiles to know she wanted to build something quieter.",
+      "She trained at Oregon Health & Science University, earned her accreditation through the American Academy of Cosmetic Dentistry — a credential fewer than one in twenty cosmetic dentists hold — and continues her restorative study at the Kois Center. That training shows up not as flash but as restraint.",
+      "The studio sees a small number of patients each day. No double-booking, no rushing between rooms. It means appointments cost a little more and run a little longer, and it means the work is done the way it should be.",
+    ],
+    values: [
+      {
+        title: "Conservative by default",
+        body: "We remove the least tooth structure a result allows, and we will tell you when the answer is to do nothing at all.",
+      },
+      {
+        title: "Designed around your face",
+        body: "Every smile is planned against your features, your bite, and the way you actually speak — never a template shade and shape.",
+      },
+      {
+        title: "Unhurried by choice",
+        body: "We see fewer patients a day so that no appointment feels rushed and every question has time to be answered.",
+      },
+    ],
+  },
+
+  /** Contact-form configuration (PRD 4.4) */
+  contact: {
+    preferredTimes: [
+      "Morning (8am – 11am)",
+      "Midday (11am – 2pm)",
+      "Afternoon (2pm – 5pm)",
+      "No preference",
+    ],
+    formNote:
+      "We reply within one business day. For anything urgent, please call the studio directly.",
+    /** Shown to set expectations; this template form is not yet wired to a backend. */
+    successMessage:
+      "Thank you — your message has reached the studio. We will be in touch within one business day.",
+  },
+
   analytics: { gtmId: "" },
 } as const;
 
