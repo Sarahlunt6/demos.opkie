@@ -3,14 +3,16 @@ import { Container } from "@/components/layout/Container";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { ContactForm } from "@/components/interactive/ContactForm";
 import { siteConfig } from "@/lib/site.config";
+import { pageMetadata } from "@/lib/seo";
 import { formatHours, formatTime } from "@/lib/format";
 
 const { pages, practice, hours } = siteConfig;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: pages.contact.seo.title,
   description: pages.contact.seo.description,
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   const grouped = formatHours(hours);

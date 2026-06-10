@@ -5,13 +5,15 @@ import { PageHeader } from "@/components/layout/PageHeader";
 import { GalleryGrid } from "@/components/sections/GalleryGrid";
 import { BookingBand } from "@/components/sections/BookingBand";
 import { siteConfig } from "@/lib/site.config";
+import { pageMetadata } from "@/lib/seo";
 
 const { pages } = siteConfig;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: pages.smileGallery.seo.title,
   description: pages.smileGallery.seo.description,
-};
+  path: "/smile-gallery",
+});
 
 export default function SmileGalleryPage() {
   return (

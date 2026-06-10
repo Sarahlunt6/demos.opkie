@@ -6,7 +6,11 @@ import { Reveal } from "@/components/ui/Reveal";
 import { FaqAccordion } from "@/components/interactive/FaqAccordion";
 import { TransformationSlider } from "@/components/interactive/TransformationSlider";
 import { BookingBand } from "@/components/sections/BookingBand";
+import { JsonLd } from "@/components/seo/JsonLd";
+import type { Crumb } from "@/components/layout/Breadcrumb";
 import { siteConfig } from "@/lib/site.config";
+import { pageMetadata } from "@/lib/seo";
+import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { ph } from "@/lib/placeholder";
 
 type Params = { slug: string };
@@ -27,10 +31,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const service = getService(slug);
   if (!service) return {};
-  return {
+  return pageMetadata({
     title: service.seo.title,
     description: service.seo.description,
-  };
+    path: `/services/${service.slug}`,
+  });
 }
 
 export default async function ServiceDetailPage({
@@ -45,16 +50,22 @@ export default async function ServiceDetailPage({
   // A matching gallery case provides the procedure-specific before/after.
   const galleryCase = siteConfig.gallery.find((c) => c.serviceSlug === slug);
 
+  // One crumb list feeds both the visible breadcrumb and the JSON-LD.
+  const crumbs: Crumb[] = [
+    { label: "Home", href: "/" },
+    { label: "Services", href: "/services" },
+    { label: service.shortTitle, href: `/services/${service.slug}` },
+  ];
+
   return (
     <>
+      <JsonLd data={breadcrumbSchema(crumbs)} />
+      <JsonLd data={faqSchema(service.faqs)} />
+
       <PageHeader
         eyebrow={service.eyebrow}
         title={service.title}
-        crumbs={[
-          { label: "Home", href: "/" },
-          { label: "Services", href: "/services" },
-          { label: service.shortTitle },
-        ]}
+        crumbs={crumbs}
       />
 
       {/* Positioning statement */}

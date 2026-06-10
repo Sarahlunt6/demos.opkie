@@ -233,7 +233,7 @@ export const siteConfig = {
       seo: {
         title: "Porcelain Veneers in Westbrook",
         description:
-          "Hand-layered porcelain veneers designed around your face by Dr. Alexandra Hale at Hale Dental Studio in Westbrook. Conservative, natural, and built to last.",
+          "Hand-layered porcelain veneers designed around your face by Dr. Alexandra Hale at Hale Dental Studio in Westbrook. Conservative, natural, and lasting.",
       },
     },
     {

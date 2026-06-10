@@ -5,14 +5,16 @@ import { PageHeader } from "@/components/layout/PageHeader";
 import { Reveal } from "@/components/ui/Reveal";
 import { BookingBand } from "@/components/sections/BookingBand";
 import { siteConfig } from "@/lib/site.config";
+import { pageMetadata } from "@/lib/seo";
 import { ph } from "@/lib/placeholder";
 
 const { pages, about, doctor } = siteConfig;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: pages.about.seo.title,
   description: pages.about.seo.description,
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

@@ -4,13 +4,15 @@ import { PageHeader } from "@/components/layout/PageHeader";
 import { Reveal } from "@/components/ui/Reveal";
 import { BookingBand } from "@/components/sections/BookingBand";
 import { siteConfig } from "@/lib/site.config";
+import { pageMetadata } from "@/lib/seo";
 
 const { pages, newPatients } = siteConfig;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: pages.newPatients.seo.title,
   description: pages.newPatients.seo.description,
-};
+  path: "/new-patients",
+});
 
 const SECTIONS: { eyebrow: string; heading: string; points: readonly string[] }[] =
   [

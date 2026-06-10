@@ -4,13 +4,15 @@ import { PageHeader } from "@/components/layout/PageHeader";
 import { ServiceEntry } from "@/components/sections/ServiceEntry";
 import { BookingBand } from "@/components/sections/BookingBand";
 import { siteConfig } from "@/lib/site.config";
+import { pageMetadata } from "@/lib/seo";
 
 const { pages, services } = siteConfig;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: pages.services.seo.title,
   description: pages.services.seo.description,
-};
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (
