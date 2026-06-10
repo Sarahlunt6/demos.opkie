@@ -121,6 +121,44 @@
 }
 
 /* ---------------------------------------------------------------- *
+ * Motion — homepage load sequence + slider invitation (PRD 2.6)
+ * ---------------------------------------------------------------- */
+@keyframes line-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.6em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes handle-pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.12);
+  }
+}
+
+@layer utilities {
+  /* Headline lines rise with a per-line delay (set inline). fill: both keeps
+     the hidden start-state until each line's delay elapses. */
+  .animate-line-rise {
+    opacity: 0;
+    animation: line-rise 0.6s var(--ease-out-soft) both;
+  }
+
+  /* Slider handle pulses once after the headline resolves, then rests. */
+  .animate-handle-pulse {
+    animation: handle-pulse 0.7s var(--ease-out-soft) 1;
+  }
+}
+
+/* ---------------------------------------------------------------- *
  * Reduced motion — disable all transforms, opacity-only (PRD 2.6 / 8)
  * ---------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
