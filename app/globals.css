@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+/*
+  Design token source of truth — the Showcase Hub (PRD 3.2 / 3.3 / 3.4).
+  The hub is the gallery wall, not the art: a deliberately NEUTRAL identity that
+  borrows no template's signature language (PRD 3.1). One neutral sans, white
+  space, restraint. Components reference these tokens by name; no raw hex in
+  components. Template brand color appears in exactly one place — the index
+  chips — and comes from hub.config.ts (brandHue), never from here.
+*/
+
+@theme {
+  /* Color tokens (PRD 3.2) — neutral, quiet. */
+  --color-studio-white: #ffffff; /* page background */
+  --color-carbon: #141414; /* text, footer, primary buttons */
+  --color-mist: #f2f2f0; /* preview frames, section washes */
+  --color-line: #e3e3e0; /* hairlines, borders */
+  /* opkie-accent — links, active states, Style Finder highlight; small doses
+     only (PRD 3.2). PLACEHOLDER: replace with the current opkie.com brand hue. */
+  --color-accent: #2c66a8;
+  --color-accent-ink: #ffffff; /* text on top of accent fills */
+
+  /* Type — ONE neutral family, multiple weights (PRD 3.3). */
+  --font-sans: var(--font-inter);
+
+  /* Display: 600, tight-tracked, clamp 2rem–4rem (PRD 3.3). */
+  --text-display: clamp(2rem, 1.1rem + 3vw, 4rem);
+  --text-display--line-height: 1.05;
+  --text-display--letter-spacing: -0.02em;
+  --text-display-sm: clamp(1.5rem, 1.1rem + 1.4vw, 2rem);
+  --text-display-sm--line-height: 1.12;
+  --text-display-sm--letter-spacing: -0.015em;
+
+  /* Body: 16–17px / 1.6 (PRD 3.3). */
+  --text-body: 1.0625rem; /* 17px */
+  --text-body--line-height: 1.6;
+  --text-body-lg: 1.1875rem; /* 19px subline */
+  --text-body-lg--line-height: 1.55;
+
+  /* Utility label: 12px letterspaced uppercase (PRD 3.3). */
+  --text-label: 0.75rem; /* 12px */
+  --text-label--line-height: 1.4;
+  --text-label--letter-spacing: 0.08em;
+
+  /* Layout (PRD 3.4) — max-width 1240px. */
+  --container-page: 1240px;
+
+  /* Motion (PRD 3.4) — minimal, 200ms, ease-out. */
+  --ease-out: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* ---------------------------------------------------------------- *
+ * Base layer
+ * ---------------------------------------------------------------- */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    /* Offset smooth-scroll targets for the sticky index bar. */
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    background-color: var(--color-studio-white);
+    color: var(--color-carbon);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Display headings: neutral sans, 600, tight (PRD 3.3) — not a serif. */
+  h1,
+  h2,
+  h3 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-carbon);
+  }
+
+  /* Visible focus — accent 2px (PRD 8). */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+/* ---------------------------------------------------------------- *
+ * Components
+ * ---------------------------------------------------------------- */
+@layer components {
+  /* Letterspaced 12px uppercase utility label (PRD 3.3). */
+  .label {
+    font-size: var(--text-label);
+    line-height: var(--text-label--line-height);
+    letter-spacing: var(--text-label--letter-spacing);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* Readable measure for body copy. */
+  .measure {
+    max-width: 60ch;
+  }
+}
+
+/* ---------------------------------------------------------------- *
+ * Motion — one load fade-up stagger (PRD 3.4), gated behind no-preference so
+ * reduced-motion users get static, fully-visible content with no JS.
+ * ---------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.5s var(--ease-out) both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
