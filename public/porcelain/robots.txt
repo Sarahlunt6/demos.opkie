@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://haledentalstudio.com
+Sitemap: https://haledentalstudio.com/sitemap.xml

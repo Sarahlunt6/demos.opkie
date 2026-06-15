@@ -58,10 +58,6 @@ export interface HubConfig {
 export const hubConfig: HubConfig = {
   siteUrl: "https://demos.opkie.com", // canonical origin (PRD 9)
   templates: [
-    /* TEMPORARILY DISABLED — Porcelain (Template A) has no live demo right now:
-       this repo became the hub, so Porcelain moved to the
-       opkie-template-a-porcelain repo and needs its own Vercel deploy. To bring
-       it back, uncomment this entry and set demoUrl to the live URL.
     {
       id: "porcelain",
       label: "Template A",
@@ -77,14 +73,13 @@ export const hubConfig: HubConfig = {
         "Editorial type and gallery-grade whitespace that present your cases like fine portraiture, not a brochure.",
         "A filterable smile gallery, case by case, built to turn browsing into booked consultations.",
       ],
-      demoUrl: "https://opkie-template-a-porcelain.vercel.app",
+      demoUrl: "/porcelain/", // static export hosted in this project
       screenshots: [
         "/previews/porcelain-home.png",
         "/previews/porcelain-feature.png",
         "/previews/porcelain-mobile.png",
       ],
     },
-    */
     {
       id: "meridian",
       label: "Template B",
