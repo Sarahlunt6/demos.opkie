@@ -46,6 +46,8 @@ export interface HubTemplate {
 }
 
 export interface HubConfig {
+  /** Canonical origin — used for canonicals, robots, sitemap, and OG URLs. */
+  siteUrl: string;
   templates: HubTemplate[];
   contact: { phone: string; email: string; bookingUrl: string };
   turnaround: string;
@@ -54,6 +56,7 @@ export interface HubConfig {
 }
 
 export const hubConfig: HubConfig = {
+  siteUrl: "https://demos.opkie.com", // canonical origin (PRD 9)
   templates: [
     {
       id: "porcelain",

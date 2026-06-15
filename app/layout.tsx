@@ -22,10 +22,28 @@ const description =
   "Five fully built dental website templates — each mobile-optimized and engineered for search. Pick the style that fits your practice.";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(hubConfig.siteUrl),
   title,
   description,
+  alternates: { canonical: "/" },
+  // Full OG/Twitter cards regardless of indexing — the link gets shared in
+  // emails and texts (PRD 7). The five-template OG image (app/opengraph-image)
+  // is attached automatically by Next to both cards.
+  openGraph: {
+    title,
+    description,
+    url: "/",
+    siteName: "Opkie",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
   // Direct-link sales tool, not a search asset (PRD 7) — noindex unless the
-  // config flag is flipped. Full OG/metadata lands in Phase 4.
+  // config flag is flipped.
   robots: hubConfig.indexable
     ? { index: true, follow: true }
     : { index: false, follow: false },
