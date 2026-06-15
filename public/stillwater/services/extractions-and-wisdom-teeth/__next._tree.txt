@@ -1,3 +1,3 @@
-:HL["/stillwater/_next/static/chunks/2rgu1yqa5hc-u.css","style"]
+:HL["/stillwater/_next/static/chunks/3-lnvrh888h2u.css","style"]
 :HL["/stillwater/_next/static/media/8c2eb9ceedecfc8e-s.p.23aeddxv5enbo.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"services","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"extractions-and-wisdom-teeth","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"cMKCMVtReeAME__VVoLLI"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"services","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"extractions-and-wisdom-teeth","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"be6GGOkQKwVVN3LXzMTrn"}
