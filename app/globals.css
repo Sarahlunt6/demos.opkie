@@ -8,13 +8,15 @@
 */
 
 @theme {
-  /* Color tokens (PRD 2.2) — dental porcelain / enamel / studio lighting */
-  --color-porcelain: #fafaf8; /* page background — cool white, not cream */
-  --color-enamel: #ffffff; /* cards, elevated surfaces */
-  --color-graphite: #1c1b1a; /* primary text — near-black with warmth */
-  --color-smoke: #6e6a66; /* secondary text */
-  --color-champagne: #b8a06a; /* accent — muted metallic gold, used sparingly */
-  --color-ink-line: #e5e2dd; /* hairline borders and dividers */
+  /* Color tokens (PRD 2.2) — recolored to the shared Opkie blue palette. Token
+     names are unchanged; each keeps its exact structural role. Client recoloring
+     happens by editing these values only. */
+  --color-porcelain: #fafbfc; /* page background (neutral-25) */
+  --color-enamel: #ffffff; /* cards, elevated surfaces (neutral-0) */
+  --color-graphite: #16191d; /* primary text + dark blocks (neutral-900) */
+  --color-smoke: #3a434e; /* secondary text / eyebrows / captions (neutral-700) */
+  --color-champagne: #6fa0d6; /* sparing accent — light, reads on dark blocks (blue-400) */
+  --color-ink-line: #e5e9ed; /* hairline borders and dividers (neutral-100) */
 
   /* Type families (PRD 2.3) — exactly two, loaded via next/font */
   --font-display: var(--font-fraunces); /* high-contrast editorial serif */

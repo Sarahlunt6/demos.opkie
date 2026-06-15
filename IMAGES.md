@@ -101,7 +101,7 @@ preferred, in which case:
 
 | Slot | Path | Dimensions | Subject direction | Alt source |
 |---|---|---|---|---|
-| OG image | generated at `app/opengraph-image` (Phase 4) | 1200 × 630 | Template-rendered: practice name from config in display serif on porcelain, one champagne hairline. No photo required. | n/a (decorative) |
+| OG image | generated at `app/opengraph-image` (Phase 4) | 1200 × 630 | Template-rendered: practice name from config in display serif on porcelain, one accent hairline (now blue, from the shared palette via `lib/tokens.ts`). No photo required. | n/a (decorative) |
 
 ---
 

@@ -8,10 +8,10 @@
  * globals.css; it is the only sanctioned place for palette hex outside CSS.
  */
 export const palette = {
-  porcelain: "#FAFAF8",
-  enamel: "#FFFFFF",
-  graphite: "#1C1B1A",
-  smoke: "#6E6A66",
-  champagne: "#B8A06A",
-  inkLine: "#E5E2DD",
+  porcelain: "#FAFBFC", // neutral-25
+  enamel: "#FFFFFF", // neutral-0
+  graphite: "#16191D", // neutral-900
+  smoke: "#3A434E", // neutral-700
+  champagne: "#6FA0D6", // blue-400
+  inkLine: "#E5E9ED", // neutral-100
 } as const;

@@ -100,6 +100,11 @@ values in components. The only JS-side mirror is `lib/tokens.ts`, used solely
 by the generated OG image and the theme-color meta, which cannot read CSS
 variables.
 
+All five Opkie templates now ship with one shared blue palette (byte-identical
+`@theme` values across every repo); differentiation lives in typography, layout,
+motion, and the signature interactions, not hue. Client recoloring happens by
+editing the `@theme` values only.
+
 ## Accessibility & performance
 
 - WCAG 2.1 AA: champagne 2px focus rings, verified contrast, one `h1` per page,
