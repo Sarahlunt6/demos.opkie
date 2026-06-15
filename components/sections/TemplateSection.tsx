@@ -32,7 +32,7 @@ export function TemplateSection({
 
           {/* Content */}
           <div>
-            <UtilityLabel className="block text-carbon/50">
+            <UtilityLabel className="block text-carbon/60">
               {template.label} — {template.name}
             </UtilityLabel>
             <UtilityLabel className="mt-1 block text-accent">

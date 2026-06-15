@@ -31,7 +31,7 @@ export function WhatHappensNext() {
         <ol className="mt-10 grid gap-8 md:grid-cols-3">
           {steps.map((step, i) => (
             <li key={step.title} className="border-t-2 border-carbon pt-5">
-              <span className="label text-carbon/50">Step {i + 1}</span>
+              <span className="label text-carbon/60">Step {i + 1}</span>
               <h3 className="mt-2 text-lg font-semibold text-carbon">{step.title}</h3>
               <p className="mt-2 text-sm text-carbon/70">{step.body}</p>
             </li>

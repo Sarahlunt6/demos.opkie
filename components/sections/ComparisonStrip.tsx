@@ -41,7 +41,7 @@ export function ComparisonStrip() {
           <thead>
             <tr className="border-b border-line">
               <th scope="col" className="w-44 py-4 pr-4 align-bottom">
-                <span className="label text-carbon/50">Template</span>
+                <span className="label text-carbon/60">Template</span>
               </th>
               {templates.map((t) => (
                 <th key={t.id} scope="col" className="py-4 pl-4 align-bottom">
@@ -61,7 +61,7 @@ export function ComparisonStrip() {
             {ROWS.map((row) => (
               <tr key={row.key} className="border-b border-line align-top">
                 <th scope="row" className="py-5 pr-4">
-                  <span className="label text-carbon/50">{row.label}</span>
+                  <span className="label text-carbon/60">{row.label}</span>
                 </th>
                 {templates.map((t) => (
                   <td key={t.id} className="py-5 pl-4 text-sm text-carbon/80">
@@ -77,8 +77,9 @@ export function ComparisonStrip() {
       {/* Below 1024px: snap-scroll cards with edge-peek */}
       <div className="mt-10 lg:hidden">
         <ul
+          tabIndex={0}
+          aria-label="Template comparison cards — scroll horizontally"
           className="flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-          aria-label="Template comparison cards"
         >
           {templates.map((t) => (
             <li
@@ -96,7 +97,7 @@ export function ComparisonStrip() {
               <dl className="mt-4 space-y-3">
                 {ROWS.map((row) => (
                   <div key={row.key}>
-                    <dt className="label text-carbon/50">{row.label}</dt>
+                    <dt className="label text-carbon/60">{row.label}</dt>
                     <dd className="mt-1 text-sm text-carbon/80">{cell(t, row.key)}</dd>
                   </div>
                 ))}

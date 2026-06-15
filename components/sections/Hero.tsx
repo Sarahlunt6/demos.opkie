@@ -18,10 +18,9 @@ export function Hero({ children }: { children?: React.ReactNode }) {
       <UtilityLabel className="block text-accent animate-fade-up">
         Opkie Website Studio
       </UtilityLabel>
-      <h1
-        className="mt-5 max-w-[20ch] text-display animate-fade-up"
-        style={{ animationDelay: "60ms" }}
-      >
+      {/* The headline is the LCP element — not animated, so it paints
+          immediately and keeps the hub the fastest of the six sites (PRD 8). */}
+      <h1 className="mt-5 max-w-[20ch] text-display">
         Five websites. Built, proven, ready for your practice.
       </h1>
       <p

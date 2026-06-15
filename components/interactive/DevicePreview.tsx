@@ -59,7 +59,7 @@ export function DevicePreview({
             <span className="h-2.5 w-2.5 rounded-full border border-line bg-studio-white" />
             <span className="h-2.5 w-2.5 rounded-full border border-line bg-studio-white" />
           </span>
-          <span className="truncate rounded-sm bg-studio-white px-2 py-0.5 text-xs text-carbon/50">
+          <span className="truncate rounded-sm bg-studio-white px-2 py-0.5 text-xs text-carbon/60">
             {host}
           </span>
         </div>
@@ -77,22 +77,28 @@ export function DevicePreview({
           aria-label={`${template.name} preview — show next view`}
           className="relative block aspect-[16/10] w-full bg-mist"
         >
+          {/* Neutral gray placeholder slots until real screenshots land
+              (PREVIEWS.md). Decorative — no text inside the control; the caption
+              below and the dots name the slots, and real screenshots will carry
+              alt text. */}
           {template.screenshots.map((src, i) => (
             <span
               key={src}
-              aria-hidden={i !== active}
-              className={`absolute inset-0 flex items-center justify-center transition-opacity duration-200 ease-out ${
+              aria-hidden="true"
+              className={`absolute inset-0 bg-mist transition-opacity duration-200 ease-out ${
                 i === active ? "opacity-100" : "opacity-0"
               }`}
-            >
-              {/* Placeholder until real screenshots exist (PREVIEWS.md). */}
-              <span className="label text-carbon/40">
-                {template.name} — {SLOT_LABELS[i]}
-              </span>
-            </span>
+            />
           ))}
         </button>
       </div>
+
+      {/* Caption — names the current view; outside the control by design. */}
+      <p className="mt-3 text-center">
+        <span className="label text-carbon/60">
+          {template.name} — {SLOT_LABELS[active]}
+        </span>
+      </p>
 
       {/* Dots */}
       <div className="mt-3 flex items-center justify-center gap-2">
@@ -103,10 +109,15 @@ export function DevicePreview({
             onClick={() => setActive(i)}
             aria-label={`Show ${template.name} ${labelText.toLowerCase()}`}
             aria-current={i === active ? "true" : undefined}
-            className={`h-2 w-2 rounded-full transition-colors duration-200 ${
-              i === active ? "bg-carbon" : "bg-line hover:bg-carbon/40"
-            }`}
-          />
+            className="flex h-6 w-6 items-center justify-center"
+          >
+            <span
+              aria-hidden="true"
+              className={`h-2 w-2 rounded-full transition-colors duration-200 ${
+                i === active ? "bg-carbon" : "bg-line"
+              }`}
+            />
+          </button>
         ))}
       </div>
     </div>
