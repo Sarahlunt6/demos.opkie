@@ -1,8 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Clean URLs, no trailing slash — canonicals and sitemap match exactly.
-  trailingSlash: false,
+  // trailingSlash matches the template static exports served from public/<id>/
+  // (one Vercel project hosts the hub + all template demos), so directory
+  // index.html files resolve consistently.
+  trailingSlash: true,
 };
 
 export default nextConfig;

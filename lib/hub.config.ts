@@ -100,7 +100,7 @@ export const hubConfig: HubConfig = {
         "Blueprint-clean structure and precise detailing that signal real clinical authority.",
         "Built for implants and high-tech care, with the proof a high-trust decision needs.",
       ],
-      demoUrl: "https://opkie-template-b-meridian.vercel.app", // PLACEHOLDER
+      demoUrl: "/meridian/", // static export hosted in this project
       screenshots: [
         "/previews/meridian-home.png",
         "/previews/meridian-feature.png",

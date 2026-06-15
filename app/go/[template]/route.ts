@@ -30,7 +30,10 @@ export async function GET(
     ...(forParam ? { for: forParam } : {}),
   });
 
-  const destination = new URL(template.demoUrl);
+  // demoUrl may be an absolute URL (separate host) or a same-origin path like
+  // "/meridian/" (a demo hosted in this project) — resolve either against the
+  // current origin.
+  const destination = new URL(template.demoUrl, request.url);
   if (forParam) destination.searchParams.set("for", forParam);
 
   return NextResponse.redirect(destination.toString(), 307);
