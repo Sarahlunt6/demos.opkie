@@ -1,5 +1,6 @@
 import { Container } from "@/components/layout/Container";
 import { UtilityLabel } from "@/components/ui/UtilityLabel";
+import { PersonalizedGreeting } from "@/components/interactive/PersonalizedGreeting";
 
 /**
  * Hero (PRD 4.1 #2) — short. Eyebrow + headline + one subline. The optional
@@ -9,6 +10,11 @@ import { UtilityLabel } from "@/components/ui/UtilityLabel";
 export function Hero({ children }: { children?: React.ReactNode }) {
   return (
     <Container as="section" className="py-16 lg:py-24">
+      {/* Reserved server-side slot so the optional ?for= line causes no layout
+          shift when it hydrates (PRD 8, CLS < 0.02). */}
+      <div className="mb-3 min-h-[1.1rem]">
+        <PersonalizedGreeting />
+      </div>
       <UtilityLabel className="block text-accent animate-fade-up">
         Opkie Website Studio
       </UtilityLabel>

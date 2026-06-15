@@ -3,8 +3,10 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { hubConfig } from "@/lib/hub.config";
 import { palette } from "@/lib/tokens";
+import { Analytics } from "@vercel/analytics/react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { GtmScript } from "@/components/analytics/GtmScript";
 
 // One neutral family, multiple weights (PRD 3.3). Subset + swap; the hub must be
 // the fastest of the six sites (PRD 8), so the font is small and preloaded.
@@ -50,6 +52,8 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <Analytics />
+        <GtmScript />
       </body>
     </html>
   );
