@@ -1,23 +1,37 @@
-import { Container } from "@/components/layout/Container";
-import { UtilityLabel } from "@/components/ui/UtilityLabel";
+import { hubConfig } from "@/lib/hub.config";
+import { Hero } from "@/components/sections/Hero";
+import { StyleFinder } from "@/components/interactive/StyleFinder";
+import { TemplateIndex } from "@/components/interactive/TemplateIndex";
+import { TemplateSection } from "@/components/sections/TemplateSection";
+import { ComparisonStrip } from "@/components/sections/ComparisonStrip";
+import { WhatHappensNext } from "@/components/sections/WhatHappensNext";
+import { EverySiteIncludes } from "@/components/sections/EverySiteIncludes";
+import { FinalCta } from "@/components/sections/FinalCta";
+import { StickyMobileBar } from "@/components/interactive/StickyMobileBar";
 
 /**
- * Phase 1 placeholder. The full Showroom — hero, Style Finder, sticky template
- * index, five template sections with device previews, comparison strip,
- * what-happens-next, every-site-includes, final CTA — is built in Phase 2,
- * top to bottom from hub.config.ts.
+ * The Showroom (PRD 4.1). One page, top to bottom, rendered from hub.config.ts:
+ * hero -> Style Finder -> sticky template index -> five identical template
+ * sections -> comparison strip -> what happens next -> every site includes ->
+ * final CTA. The sticky mobile bar is the conversion spine on phones.
  */
 export default function HomePage() {
   return (
-    <Container as="section" className="py-24">
-      <UtilityLabel className="block text-accent">Opkie Website Studio</UtilityLabel>
-      <h1 className="mt-5 max-w-[18ch] text-display">
-        Five websites. Built, proven, ready for your practice.
-      </h1>
-      <p className="measure mt-6 text-body-lg text-carbon/70">
-        Every option is fully built, mobile-optimized, and engineered for search.
-        The only decision is style.
-      </p>
-    </Container>
+    <>
+      <Hero />
+      <StyleFinder />
+      <TemplateIndex />
+
+      {hubConfig.templates.map((template, i) => (
+        <TemplateSection key={template.id} template={template} priority={i === 0} />
+      ))}
+
+      <ComparisonStrip />
+      <WhatHappensNext />
+      <EverySiteIncludes />
+      <FinalCta />
+
+      <StickyMobileBar />
+    </>
   );
 }

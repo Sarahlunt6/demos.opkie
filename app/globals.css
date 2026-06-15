@@ -128,6 +128,21 @@
   .animate-fade-up {
     animation: fade-up 0.5s var(--ease-out) both;
   }
+
+  /* Style Finder soft highlight (PRD 4.1.3) — an accent left-rule that fades
+     over 2s when a template section is selected. */
+  @keyframes style-highlight {
+    from {
+      box-shadow: inset 4px 0 0 0 var(--color-accent);
+    }
+    to {
+      box-shadow: inset 4px 0 0 0 transparent;
+    }
+  }
+
+  .style-highlight {
+    animation: style-highlight 2s var(--ease-out);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
