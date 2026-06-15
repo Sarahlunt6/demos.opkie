@@ -1,194 +1,176 @@
-# PRD — Dental Website Template A: "Porcelain"
-### The Boutique Cosmetic Practice
+# PRD — Opkie Template Showcase Hub: "The Showroom" (v2 — Five Templates)
 
-**Product:** Premium dental website template (1 of 3 in Opkie's template system)
-**Stack:** Next.js 14+ (App Router), Tailwind CSS, TypeScript, deployed on Vercel via GitHub
-**Status:** Ready for build in Claude Code
+> One link. Five websites. An easy choice.
 
----
-
-## 1. Positioning & Target Client
-
-This template is for the **cosmetic and aesthetic-forward dental practice**: veneers, smile makeovers, whitening, Invisalign, boutique patient experience. The dentist who buys this template thinks of their practice the way a high-end med spa or luxury studio thinks of itself.
-
-**The site's single job:** Make a prospective patient believe "this is where I get the smile I actually want" and book a consultation.
-
-**Tone in one sentence:** Quiet luxury — the confidence of a practice that doesn't need to shout.
+**Product:** Client-facing showcase site that presents Opkie's five dental website templates and routes visitors to the live demos.
+**Stack:** Next.js 14+ (App Router), Tailwind CSS v4 (CSS `@theme` tokens), TypeScript, deployed on Vercel via GitHub.
+**Suggested domain:** `demos.opkie.com` (or `templates.opkie.com`).
+**Status:** Ready for build in Claude Code. Supersedes the three-template v1 PRD.
 
 ---
 
-## 2. Design Direction
+## 1. Project Context (read first)
 
-### 2.1 Personality
-Editorial, gallery-like, restrained. The smile transformations ARE the content — the design is the frame. Think of how a high-end portrait photographer or fine jewelry brand presents work: generous whitespace, large imagery, disciplined type.
+Opkie sells high-performance websites to dental practices. We maintain five fully built, completely distinct template sites, each deployed as its own live demo on its own Vercel project:
 
-**Explicitly avoid (these read as AI-generated):**
-- Warm cream (#F4F1EA-range) background with terracotta accent — overused AI default
-- Gradient hero text or gradient accent blobs
-- Emoji anywhere, including as icons
-- Generic "big number + small label + 3 stats" hero
-- Card grids with identical drop shadows
-- Stock-photo smiles with watermark energy — use real-feeling placeholder imagery direction (see 7.2)
+| Template | Codename | Positioning | Visual fingerprint | Demo URL |
+|---|---|---|---|---|
+| A | Porcelain | Boutique cosmetic | Light, editorial serif, before/after slider | config |
+| B | Meridian | Modern clinical / implants | Light, sans + mono, blueprint precision, treatment pathway | config |
+| C | Hearthside | Neighborhood family | Warm light, rounded, evergreen, first-visit walkthrough | config |
+| D | Stillwater | Calm / sedation & dental anxiety | Warm dark, gentle serif, comfort menu | config |
+| E | Marquee | Bold modern / transparent pricing | Flat color blocks, huge type, pricing toggle | config |
 
-### 2.2 Color Tokens
-Derived from dental porcelain, enamel, and studio lighting — not from a generic "luxury" palette.
+This PRD covers the sixth site: the hub. The sales process is: "Here's one link — pick the style that feels like your practice."
+
+**The hub's single job:** Let a dentist (often on their phone, between patients) understand the five options quickly, narrow to the one or two that fit them, open the live demos, and know exactly what to do next.
+
+**New problem at five options (vs three):** choice overload is now real. The hub must actively help narrow, not just display. See the Style Finder (4.1.3) and anchor links — these exist specifically because five is more than a phone screen can compare unaided.
+
+## 2. Audience & Use Context
+
+- **Who:** Dental practice owners and office managers, mid-sales-process, link received from Opkie directly.
+- **Context:** Mobile-heavy, low patience, may forward the link to a partner or spouse. Must work standalone with zero verbal explanation.
+- **The decision:** Not "is Opkie good" (the demos prove that) — only "which style is mine."
+
+## 3. Design Direction
+
+### 3.1 Personality
+
+The hub is the gallery wall, not the art. Impeccably designed but deliberately neutral so it doesn't bias the choice. Opkie-branded, confident, minimal — a curator's voice.
+
+**Critical rule:** The hub must borrow no template's signature language. Specifically banned in the hub's own UI: editorial high-contrast serif (A), mono annotations or blueprint hairline grids (B), rounded warm illustration and soft-serif (C), dark warm theme (D), oversized type-as-design and flat saturated color blocks (E). The hub gets its own quiet identity — neutral sans, white space, restraint.
+
+**Also avoid (AI tells):** emoji anywhere; gradient text; glow effects; blob/particle backgrounds; generic 3-card pricing-style layout; cream + terracotta or black + acid-green defaults.
+
+### 3.2 Color Tokens (Tailwind v4 `@theme` block — single source)
 
 | Token | Hex | Usage |
 |---|---|---|
-| `porcelain` | #FAFAF8 | Page background — cool white, not cream |
-| `enamel` | #FFFFFF | Cards, elevated surfaces |
-| `graphite` | #1C1B1A | Primary text, near-black with warmth |
-| `smoke` | #6E6A66 | Secondary text |
-| `champagne` | #B8A06A | Accent — muted metallic gold, used sparingly (links, rules, active states) |
-| `ink-line` | #E5E2DD | Hairline borders and dividers |
+| `studio-white` | #FFFFFF | Page background |
+| `carbon` | #141414 | Text, footer, primary buttons |
+| `mist` | #F2F2F0 | Preview frames, section washes |
+| `line` | #E3E3E0 | Hairlines, borders |
+| `opkie-accent` | (pull from current opkie.com brand) | Links, active states, the Style Finder highlight — small doses only |
 
-Rule: champagne appears on no more than ~5% of any viewport. It is punctuation, not paint.
+### 3.3 Typography
 
-### 2.3 Typography
-- **Display:** A high-contrast editorial serif (e.g., `Fraunces` with optical sizing, or `Canela`-style fallback via `Libre Caslon`). Used for H1/H2 only, large sizes (clamp 2.5rem–5.5rem), tight tracking, weight 300–400. Italic used deliberately for one or two emphasized words per page.
-- **Body:** A quiet grotesque (`Inter` at 400/500, or `Söhne`-style). 16–18px, 1.6 line height, max line length 65ch.
-- **Utility/caption:** Same grotesque at 12–13px, letterspaced uppercase for eyebrows and labels (e.g., "SMILE GALLERY — CASE 014").
-- Load via `next/font` with `display: swap`. No more than 2 families total.
+- One neutral family, multiple weights (`Inter` + `Inter Display`, or `Geist`): display 600 tight-tracked, clamp 2rem–4rem; body 16–17px / 1.6.
+- Letterspaced 12px uppercase utility labels for template metadata ("TEMPLATE D — STILLWATER / FOR SEDATION & ANXIETY-FOCUSED PRACTICES").
 
-### 2.4 Layout System
-- 12-column grid, max-width 1280px, generous gutters (32px+).
-- Asymmetry as a tool: hero and feature sections use 7/5 or 8/4 splits, not centered stacks.
-- Section rhythm: large vertical spacing (120–160px desktop, 64–80px mobile). Hairline `ink-line` rules between major sections instead of background color changes.
-- Sticky, minimal header: practice wordmark left, 4 nav items + "Book Consultation" button right. Header background transitions from transparent to `porcelain` with a hairline border on scroll.
+### 3.4 Layout & Motion
 
-### 2.5 Signature Element (the one memorable thing)
-**The Transformation Slider.** Hero features a full-bleed, interactive before/after smile comparison — a draggable vertical divider the visitor controls (pointer + touch + keyboard accessible). Built custom (no heavy library): two layered images, a `clip-path` driven by a drag handle. Subtle eyebrow above: "CASE 014 — PORCELAIN VENEERS, 8 UNITS." This single interaction communicates the entire value proposition without copy.
+- Max-width 1240px, hairline section dividers, generous spacing.
+- Motion minimal: one load fade-up stagger; 200ms hovers; preview cross-fades. `prefers-reduced-motion` respected.
+- **Template index (new at five):** immediately under the hero, a slim sticky-on-scroll index bar listing all five codenames as anchor links with a small color chip each (chip uses that template's primary brand hue — the one place template color appears in hub UI). Lets a visitor jump rather than scroll-hunt.
 
-The slider pattern repeats in the Smile Gallery as a grid of interactive cases.
+### 3.5 Signature Element
 
-### 2.6 Motion
-- One orchestrated page-load sequence on the homepage: headline lines reveal with a 60ms stagger (translateY + opacity), then the transformation slider handle pulses once to invite interaction. Total sequence under 1.2s.
-- Scroll-triggered reveals: single fade-up per section, 0.5s ease-out, triggered once. No parallax, no floating elements.
-- Hover micro-interactions: links get an animated champagne underline (left-to-right); gallery cards lift 2px with a hairline border shift, no shadow bloom.
-- `prefers-reduced-motion` fully respected: all transforms disabled, opacity-only fallbacks.
+**Live device previews.** Each template presented as a large interactive preview: clean browser-chrome frame cycling 3 high-fidelity screenshots (home, signature interaction, mobile view) on hover/tap with dot indicators, plus "View live site" opening the real demo in a new tab. Static screenshots, not iframes (iframes are slow, break interactions, and wreck CLS). 15 screenshots total (5 × 3), captured per `PREVIEWS.md`.
 
----
+## 4. Page Structure (single page + utility routes)
 
-## 3. Site Architecture
+### 4.1 `/` — The Showroom
 
-```
-/                       Home
-/about                  About the Practice (doctor-led story)
-/services               Services hub
-/services/veneers
-/services/smile-makeover
-/services/teeth-whitening
-/services/invisalign
-/services/dental-implants
-/services/general-dentistry
-/smile-gallery          Interactive before/after case grid
-/new-patients           First visit, forms, financing
-/contact                Contact + booking
-```
+1. **Header:** Opkie wordmark left; phone + "Talk to us" button right (config). Slim, hairline border.
+2. **Hero (short):** Eyebrow "OPKIE WEBSITE STUDIO" + headline — placeholder: "Five websites. Built, proven, ready for your practice." One subline: every option is fully built, mobile-optimized, and engineered for search — the only decision is style. Optional `?for=Practice+Name` personalization line (sanitized, capped, plain text).
+3. **Style Finder (new, optional-skip):** A single-question segmented control directly under the hero — "What best describes your practice?" with five short answers ("Cosmetic-focused" / "Implants & technology" / "Family practice" / "We see anxious patients" / "Young, modern, no-insurance-friendly"). Selecting one smooth-scrolls to that template's section and softly highlights it (accent left-rule, 2s fade). Not a quiz, not gated, one tap, skippable — it exists to collapse five options into one starting point. State in URL param so a forwarded link can pre-highlight.
+4. **Template Sections × 5** — identical structure per template for effortless comparison:
+   - Utility label + codename
+   - Positioning line (one sentence, from config)
+   - Live device preview (signature)
+   - Three differentiators specific to that template (its signature feature first)
+   - Primary action: "View the live site" via tracked `/go/` link
+5. **Comparison strip:** Compact table — rows: "Best for," "Signature feature," "Personality in three words." Five columns at desktop; below 1024px it becomes a horizontally swipeable card row (one card per template, snap-scroll, edge-peek so the next card is visibly cut off); never a squeezed table on mobile.
+6. **What happens next:** 3 plain steps — pick the style → we swap in your name, team, photos, and services → live in [X days, config].
+7. **Every site includes:** Quiet text section — mobile-optimized, Core Web Vitals engineering, local SEO structure, accessibility, your branding throughout.
+8. **Final CTA band:** carbon — "Found yours?" + "Tell us your pick" (booking/mailto from config) + large clickable phone.
+9. **Footer:** Opkie NAP, minimal.
 
----
+### 4.2 `/go/[template]` — Tracked redirects
 
-## 4. Page Specifications
-
-### 4.1 Home
-1. **Hero:** Transformation Slider (signature), headline in display serif — placeholder: "The smile you've been postponing." Single CTA: "Book a Consultation." No stat row.
-2. **Credibility strip:** One hairline-ruled row — years in practice, board certifications, association logos (grayscale, small). Text-first, not badge-heavy.
-3. **Services editorial:** Three featured services presented as large editorial entries (image + serif title + 2-line description + arrow link), stacked with alternating alignment — not a card grid.
-4. **Doctor introduction:** 7/5 split — portrait photography direction (natural light, environmental, not white-coat-on-white) + a short first-person statement in display italic, signed.
-5. **Smile Gallery preview:** 3 interactive slider cases, link to full gallery.
-6. **Patient words:** Single rotating testimonial, large serif quote treatment, patient first name + procedure. One at a time — not a 3-column wall.
-7. **Booking band:** Full-width `graphite` section, serif headline, consultation CTA, phone number set large and clickable.
-
-### 4.2 Service Detail Pages (template, repeated per service)
-- Eyebrow + serif H1 + 1-paragraph positioning statement
-- "Is this right for you" — 4–5 plain-language qualifying statements
-- Process: numbered steps ONLY if the procedure is genuinely sequential (veneers: consult → design → prep → placement). Numbering encodes real order here.
-- Before/after slider for that procedure (where applicable)
-- FAQ accordion (5–6 questions, real objections: cost, pain, longevity, insurance) — these also feed FAQ schema
-- Consultation CTA band
-
-### 4.3 Smile Gallery
-- Filterable grid (by procedure) of transformation sliders, each labeled with case number and procedure. Filter is client-side, instant, with URL params for shareability.
-
-### 4.4 Contact
-- Two-column: form (name, phone, email, preferred time, message — no `<form>` styling defaults, custom focus states in champagne) + practice details, embedded map, hours table, parking note placeholder.
-
----
+`/go/porcelain`, `/go/meridian`, `/go/hearthside`, `/go/stillwater`, `/go/marquee` — server route fires an analytics event, then redirects to the demo URL. All demo buttons route through these so Opkie sees which templates each prospect opened. `?for=` passthrough optional.
 
 ## 5. Interactive Elements (build list)
 
 | Element | Spec |
 |---|---|
-| Transformation Slider | Custom, pointer/touch/keyboard, `clip-path` based, lazy-loaded images |
-| Gallery filter | Client-side, animated layout transition (FLIP or CSS grid auto-flow), URL-synced |
-| FAQ accordions | Native `<details>` enhanced, animated height, one-open-at-a-time, schema-paired |
-| Testimonial rotator | Auto-advance 8s, pause on hover/focus, manual arrows, no dots-only control |
-| Sticky booking CTA (mobile) | Bottom bar appears after 50% scroll, "Call" + "Book" split buttons |
-| Animated link underlines | Champagne, 250ms, left-origin |
+| Device preview cross-fade | 3 screenshots per template, hover-cycle desktop / tap-advance mobile, dots, lazy, fixed aspect ratio (zero CLS) |
+| Style Finder | Segmented control, smooth-scroll + soft highlight, URL-param state, fully skippable, keyboard operable |
+| Sticky template index | Anchor bar with color chips, appears after hero, active-section indication |
+| Tracked demo links | `/go/[template]` + analytics event (Vercel Analytics custom event or GTM) |
+| Comparison swipe row | Snap-scroll cards <1024px, edge-peek, no scrollbar chrome |
+| `?for=` personalization | Server-read, sanitized (strip tags, cap 40 chars), silent when absent |
+| Sticky mobile footer bar | "Call" + "Tell us your pick" after 50% scroll |
 
----
+## 6. Configuration System
 
-## 6. Placeholder & Configuration System
-
-All client-specific data lives in **one typed config file**: `lib/site.config.ts`.
+Single `lib/hub.config.ts` — same convention as the template repos. All five templates as entries of one shape:
 
 ```ts
-export const siteConfig = {
-  practice: {
-    name: "[Practice Name] Dental Studio",
-    tagline: "Cosmetic & Restorative Dentistry",
-    phone: "(555) 555-0142",
-    email: "hello@practicename.com",
-    address: { street: "123 Main Street, Suite 200", city: "Cityname", state: "ST", zip: "00000" },
-    geo: { lat: 0, lng: 0 },
-    hours: [...],
-    bookingUrl: "#", // GHL / scheduling embed target
-  },
-  doctor: {
-    name: "Dr. Alexandra Hale, DDS",
-    credentials: ["DDS — University Placeholder", "AACD Member"],
-    bio: "...",
-  },
-  social: {...},
+export const hubConfig = {
+  templates: [
+    {
+      id: "porcelain",
+      label: "Template A",
+      name: "Porcelain",
+      brandHue: "#B8A06A",            // index-chip color only
+      positioning: "For practices that lead with cosmetic results.",
+      bestFor: "Cosmetic & boutique practices",
+      signatureFeature: "Interactive before/after smile gallery",
+      personality: ["Refined", "Editorial", "Quiet luxury"],
+      styleFinderLabel: "Cosmetic-focused",
+      differentiators: ["...", "...", "..."],
+      demoUrl: "https://...",
+      screenshots: ["/previews/porcelain-home.png", "/previews/porcelain-feature.png", "/previews/porcelain-mobile.png"],
+    },
+    // meridian, hearthside, stillwater, marquee — same shape
+  ],
+  contact: { phone: "", email: "", bookingUrl: "" },
+  turnaround: "X days",
+  indexable: false,
   analytics: { gtmId: "" },
 };
 ```
 
-**Rules:**
-- No client-specific string is ever hardcoded in a component. Everything renders from config.
-- Images live in `/public/images/` with a documented manifest (`IMAGES.md`) listing every slot, required dimensions, and subject direction — so swapping a client in is a checklist, not a hunt.
-- Placeholder copy must read like a real practice wrote it. No lorem ipsum, no "Your Trusted Partner in Dental Excellence" filler. Write it as if for a real boutique practice named "Hale Dental Studio."
+- Everything — order, copy, URLs, screenshots, Style Finder labels — config-driven. Adding a sixth template someday is one config entry + three screenshots.
+- `PREVIEWS.md` documents the 15 screenshot captures: which pages, viewports (1440 desktop / 390 mobile), and naming, so previews can be refreshed after template updates.
 
----
+## 7. SEO & Indexing (deliberately different from the templates)
 
-## 7. SEO Requirements
-
-- **Metadata:** Next.js Metadata API per page. Unique title (≤60 char, pattern: `Veneers in [City] | [Practice Name]`) and description (≤155 char) per route, driven from config + per-page overrides.
-- **Structured data (JSON-LD):** `Dentist` (LocalBusiness subtype) sitewide with NAP, geo, hours, `sameAs`; `FAQPage` on service pages; `BreadcrumbList` on nested routes.
-- **Local SEO:** NAP rendered identically everywhere (footer, contact, schema) from config — single source of truth.
-- **Semantics:** One `h1` per page, logical heading order, `<main>/<nav>/<footer>` landmarks, descriptive alt text slots in the image manifest.
-- **Technical:** `sitemap.ts` and `robots.ts` generated; canonical URLs; OG image template (1200×630) with practice name from config; clean trailing-slash policy.
-- **Performance as SEO:** see Section 8 targets.
+- Default `noindex, nofollow`, excluded from sitemap, controlled by the `indexable` config flag — this is a direct-link sales tool, not a search asset.
+- Full metadata + OG/Twitter cards regardless: the link gets shared in emails and texts, so the preview must be impeccable — custom OG image (1200×630) showing all five templates as a strip, title "Five Websites, Ready for Your Practice | Opkie."
+- Clean semantics anyway: one `h1`, landmarks, alt text.
 
 ## 8. Performance, Accessibility, Mobile
 
-- **Core Web Vitals targets:** LCP < 2.0s, CLS < 0.05, INP < 200ms (Vercel Analytics to verify).
-- `next/image` for all imagery with explicit dimensions (zero layout shift); hero images `priority`; gallery lazy.
-- Fonts via `next/font`, subset, swap. No render-blocking third-party scripts; GTM loaded `afterInteractive`.
-- **Mobile-first build order.** Slider must be flawless on touch. Tap targets ≥44px. Sticky bottom CTA on mobile only. Test at 360px width minimum.
-- WCAG 2.1 AA: visible focus states (champagne 2px outline), contrast verified (champagne on porcelain fails for body text — accent/large use only), full keyboard operability of slider and accordions, reduced-motion support.
+- Must be the fastest of the six sites: LCP < 1.5s, CLS < 0.02, INP < 200ms. Fully static, `next/image` for all previews, first preview `priority`, the rest lazy.
+- Mobile is the primary context: full flow tested at 360px — land → Style Finder tap → preview swipe → open demo → return → "Tell us your pick." Five sections is a long page; the sticky index is the mobile navigation spine.
+- WCAG 2.1 AA: keyboard-operable preview cycling and Style Finder, visible focus, verified contrast, reduced motion honored. No emojis anywhere.
 
-## 9. Repo & Delivery Conventions
+## 9. Repo & Delivery
 
-- GitHub repo: `opkie-template-a-porcelain`. Vercel preview deploys on every PR.
-- `README.md` includes: client-swap checklist (config → images → copy passes → DNS), and a 10-minute "rebrand walkthrough."
-- Lighthouse CI check ≥95 performance / 100 accessibility / 100 SEO on home and one service page before any merge to `main`.
+- GitHub repo: `opkie-template-hub`, own Vercel project, domain `demos.opkie.com`.
+- `README.md`: updating demo URLs, refreshing screenshots, editing turnaround copy, toggling indexability, adding a template.
+- Lighthouse CI ≥98 perf / 100 a11y on mobile emulation before merge.
 
 ## 10. Acceptance Criteria
 
-- [ ] Transformation Slider works with mouse, touch, and arrow keys; no jank at 60fps
-- [ ] Zero hardcoded client strings — grep for "Hale" returns only `site.config.ts` and copy files
-- [ ] All pages pass Lighthouse thresholds above on mobile emulation
-- [ ] No emojis anywhere in UI or copy
-- [ ] Site is visually distinct from Templates B and C at a glance (different type, palette, layout logic)
-- [ ] Reads as designed-by-a-studio: passes the "would a dentist believe a human designed this for them" review
+- [ ] All five templates presented with identical section structure; Style Finder narrows in one tap and is fully skippable
+- [ ] All demo links route through `/go/[template]` and fire trackable events
+- [ ] Hub UI borrows zero signature language from any of the five templates (checklist in 3.1)
+- [ ] Comparison strip is readable at every width — swipeable cards below 1024px, never a crushed table
+- [ ] Sticky index works as the long-page navigation on mobile
+- [ ] `?for=` renders safely and degrades silently; noindex on by default and flag-controlled
+- [ ] No emojis; no hardcoded values outside `hub.config.ts`; Lighthouse thresholds met
+- [ ] Full flow phone-tested: text yourself the link, find your template via the Style Finder, open it, return, tap contact
+
+## 11. Build Order (for Claude Code)
+
+1. Scaffold Next.js + Tailwind v4 (`@theme` tokens), build `hub.config.ts` with all five template entries and placeholder screenshot paths
+2. Build the page top to bottom against config — gray placeholder images at exact aspect ratios until real screenshots exist
+3. `/go/[template]` redirects + analytics events
+4. Style Finder + sticky index + comparison swipe row
+5. `?for=` personalization with sanitization; OG image; metadata; noindex flag
+6. Mobile pass at 360px, accessibility pass, Lighthouse pass
+7. Swap in the 15 real screenshots once all five demos are deployed (per `PREVIEWS.md`)
