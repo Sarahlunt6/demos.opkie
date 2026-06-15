@@ -1,0 +1,3 @@
+:HL["/hearthside/_next/static/chunks/1mf3twrm7pti2.css","style"]
+:HL["/hearthside/_next/static/media/09813f94fb92dff6-s.p.2s620w91n8gs5.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"contact","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"UiLmwbqv36TKyWnKLfP9r"}

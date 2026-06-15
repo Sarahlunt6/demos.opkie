@@ -122,7 +122,7 @@ export const hubConfig: HubConfig = {
         "Approachable, rounded design that feels like the neighborhood practice it is.",
         "Family-first structure — every age and every reason for a visit has a clear path.",
       ],
-      demoUrl: "https://opkie-template-c-hearthside.vercel.app", // PLACEHOLDER
+      demoUrl: "/hearthside/", // static export hosted in this project
       screenshots: [
         "/previews/hearthside-home.png",
         "/previews/hearthside-feature.png",
@@ -144,7 +144,7 @@ export const hubConfig: HubConfig = {
         "A quiet, low-contrast dark theme and gentle pacing designed to lower the heart rate.",
         "Sedation and anxiety care made central, not a footnote — reassurance in every section.",
       ],
-      demoUrl: "https://opkie-template-d-stillwater.vercel.app", // PLACEHOLDER
+      demoUrl: "/stillwater/", // static export hosted in this project
       screenshots: [
         "/previews/stillwater-home.png",
         "/previews/stillwater-feature.png",
@@ -166,7 +166,7 @@ export const hubConfig: HubConfig = {
         "Bold, oversized type and flat color blocks for a modern, no-games feel.",
         "Built for transparent, no-insurance-friendly practices that lead with straight answers.",
       ],
-      demoUrl: "https://opkie-template-e-marquee.vercel.app", // PLACEHOLDER
+      demoUrl: "/marquee/", // static export hosted in this project
       screenshots: [
         "/previews/marquee-home.png",
         "/previews/marquee-feature.png",
