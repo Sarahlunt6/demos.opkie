@@ -1,3 +1,4 @@
-:HL["/marquee/_next/static/chunks/1p7jr6chqeo31.css","style"]
-:HL["/marquee/_next/static/media/c47649aa31f9e140-s.p.3lxpqujs87tck.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"services","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"emergency-dentistry","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"L5i-8y5-ATaKT-XQrZ9kD"}
+:HL["/marquee/_next/static/chunks/1br_3yuo7chth.css","style"]
+:HL["/marquee/_next/static/media/83afe278b6a6bb3c-s.p.2bn3s6zvc0dyp.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/marquee/_next/static/media/c825fd02acae0153-s.p.1q3-y3vmyf3p6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"services","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"emergency-dentistry","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"z4Rd6YcHenbtwMo4KODQx"}
