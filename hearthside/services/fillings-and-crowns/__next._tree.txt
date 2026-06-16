@@ -1,4 +1,4 @@
 :HL["/hearthside/_next/static/chunks/0gx9umem5mvuq.css","style"]
 :HL["/hearthside/_next/static/media/38df7484fe560b25-s.p.34k3f59fehpay.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/hearthside/_next/static/media/f141b5b7abe57afc-s.p.380f-mwhk0aej.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"services","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"fillings-and-crowns","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"x37RCCiY1xBFsDdpKUGWQ"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"services","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"fillings-and-crowns","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"ptT-A219aJhjnNYZrubPD"}
