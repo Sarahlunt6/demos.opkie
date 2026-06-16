@@ -1,5 +1,0 @@
-User-Agent: *
-Allow: /
-
-Host: https://stillwaterdental.com
-Sitemap: https://stillwaterdental.com/sitemap.xml

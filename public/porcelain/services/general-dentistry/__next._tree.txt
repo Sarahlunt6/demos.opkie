@@ -2,4 +2,4 @@
 :HL["/porcelain/_next/static/media/2a65768255d6b625-s.p.3u4lli0-axodc.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/porcelain/_next/static/media/345c85a432359eed-s.p.0zem_9y19rte6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/porcelain/_next/static/media/8e451580e5e95631-s.p.27vw08z6_vw0m.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"services","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"general-dentistry","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"ViBHXJZbjrT01FvFtQLBz"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"services","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"general-dentistry","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"6DXakauInx63TocvfceJj"}

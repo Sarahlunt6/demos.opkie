@@ -1,4 +1,4 @@
-:HL["/meridian/_next/static/chunks/3n_zb0wpkrmqb.css","style"]
+:HL["/meridian/_next/static/chunks/35t-1p3v4qts5.css","style"]
 :HL["/meridian/_next/static/media/01e4147cff8141ee-s.p.3huc2loe0ie8a.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/meridian/_next/static/media/47df9ba1c7236d3b-s.p.137759vg1sbmi.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"services","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"emergency-dentistry","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"d9_VJU-6svd678z04istL"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"services","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"emergency-dentistry","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"tlnWNClpIcR4wF4u2xSDw"}
